@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-#import joblib
+import pickle
 
 # -----------------------------
 # Streamlit Config (must be first!)
@@ -73,4 +73,5 @@ if st.button("🔮 Predict"):
 
     # Debug info (optional)
     st.write("ℹ️ Debug: Expected features count:", len(expected_features))
+
 
