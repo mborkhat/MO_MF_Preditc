@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 
 # -----------------------------
 # Streamlit Config (must be first!)
@@ -12,13 +12,15 @@ st.set_page_config(page_title="Mutual Fund Prediction", layout="centered")
 # -----------------------------
 @st.cache_resource
 def load_pipeline():
-    with open("mf_pipeline.pkl", "rb") as f:
-        pipeline = pickle.load(f)
-    return pipeline
+    return joblib.load(r"C:\Users\Mayur\Documents\MO\mf_pipeline.pkl")
+
 pipeline = load_pipeline()
 
 # Capture expected feature names
 #expected_features = pipeline.feature_names_in_
+# expected_features = pipeline.feature_names_in_
+
+# Temporary fix: manually define your feature list
 expected_features = [
     "Age", 
     "Income", 
@@ -29,6 +31,7 @@ expected_features = [
     "RiskTolerance", 
     "InvestmentGoal"
 ]
+
 # -----------------------------
 # Streamlit UI
 # -----------------------------
@@ -81,7 +84,4 @@ if st.button("🔮 Predict"):
     st.write(f"**Probability of Buying:** {prob:.2%}")
 
     # Debug info (optional)
-    #st.write("ℹ️ Debug: Expected features count:", len(expected_features))
-
-
-
+    st.write("ℹ️ Debug: Expected features count:", len(expected_features))
