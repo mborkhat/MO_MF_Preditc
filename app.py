@@ -12,7 +12,7 @@ st.set_page_config(page_title="Mutual Fund Prediction", layout="centered")
 # -----------------------------
 @st.cache_resource
 def load_pipeline():
-    return joblib.load(r"C:\Users\Mayur\Documents\MO\mf_pipeline.pkl")
+    return joblib.load(r"mf_pipeline.pkl")
 
 pipeline = load_pipeline()
 
@@ -85,3 +85,4 @@ if st.button("🔮 Predict"):
 
     # Debug info (optional)
     st.write("ℹ️ Debug: Expected features count:", len(expected_features))
+
