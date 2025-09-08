@@ -18,8 +18,17 @@ def load_pipeline():
 pipeline = load_pipeline()
 
 # Capture expected feature names
-expected_features = pipeline.feature_names_in_
-
+#expected_features = pipeline.feature_names_in_
+expected_features = [
+    "Age", 
+    "Income", 
+    "Holding Amount", 
+    "InvestmentExperience", 
+    "Gender", 
+    "Profession", 
+    "RiskTolerance", 
+    "InvestmentGoal"
+]
 # -----------------------------
 # Streamlit UI
 # -----------------------------
@@ -72,6 +81,7 @@ if st.button("🔮 Predict"):
     st.write(f"**Probability of Buying:** {prob:.2%}")
 
     # Debug info (optional)
-    st.write("ℹ️ Debug: Expected features count:", len(expected_features))
+    #st.write("ℹ️ Debug: Expected features count:", len(expected_features))
+
 
 
